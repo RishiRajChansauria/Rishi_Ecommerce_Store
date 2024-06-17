@@ -1,4 +1,4 @@
-package com.rishiraj.config;
+package com.rishiraj.ecommerce_store.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

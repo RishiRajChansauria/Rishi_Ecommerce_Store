@@ -1,6 +1,6 @@
-package com.rishiraj.service;
+package com.rishiraj.ecommerce_store.service;
 
-import com.rishiraj.model.Product;
+import com.rishiraj.ecommerce_store.model.Product;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

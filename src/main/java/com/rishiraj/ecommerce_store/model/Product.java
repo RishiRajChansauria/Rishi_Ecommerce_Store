@@ -1,4 +1,4 @@
-package com.rishiraj.model;
+package com.rishiraj.ecommerce_store.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

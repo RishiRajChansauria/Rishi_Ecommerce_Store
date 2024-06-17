@@ -1,7 +1,8 @@
-package com.rishiraj.controller;
+package com.rishiraj.ecommerce_store.controller;
 
-import com.rishiraj.model.Product;
-import com.rishiraj.service.ProductService;
+import com.rishiraj.ecommerce_store.model.Product;
+import com.rishiraj.ecommerce_store.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -8,6 +8,7 @@ import java.util.List;
 @Service
 public interface ProductService {
 
+    List<Product> findAllProducts();
 
-    public List<Product> findAllProducts();
+      Product createProduct(Product product);
 }

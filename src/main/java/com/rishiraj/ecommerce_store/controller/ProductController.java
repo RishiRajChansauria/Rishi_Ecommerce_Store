@@ -2,14 +2,10 @@ package com.rishiraj.ecommerce_store.controller;
 
 import com.rishiraj.ecommerce_store.model.Product;
 import com.rishiraj.ecommerce_store.service.ProductService;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductController {
@@ -21,17 +17,19 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getAllProducts(){
-        List<Product> allProducts = productService.findAllProducts();
-        if(allProducts.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(allProducts, HttpStatus.OK);
+    public Page<Product> getAllProducts(@RequestParam("PageNumber") int pageNumber, @RequestParam("PageSize") int pageSize){
+        return productService.findAllProducts(pageNumber, pageSize);
     }
 
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct(@RequestBody Product product){
         Product createdProduct = productService.createProduct(product);
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/product")
+    public ResponseEntity<Product> getProductById(@RequestParam("productId") int productId){
+        Product product = productService.getProductById(productId);
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 }
